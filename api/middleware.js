@@ -31,15 +31,15 @@ const checkResourceValid = (req, res, next) => {
   };
 
   const checkTaskValid = (req, res, next) => {
-    const { task_name } = req.body;
+    const { task_description } = req.body;
     if (
-        task_name === undefined ||
-      typeof project_name !== "string" ||
-      !task_name.trim()
+      task_description === undefined ||
+      typeof task_description !== "string" ||
+      task_description.trim() === ""
     ) {
       next({
         status: 400,
-        message: "invalid project_name",
+        message: "invalid task_description",
       });
     } else {
       next();
