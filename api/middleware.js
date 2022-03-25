@@ -35,7 +35,7 @@ const checkResourceValid = (req, res, next) => {
     if (
       task_description === undefined ||
       typeof task_description !== "string" ||
-      task_description.trim() === ""
+      !task_description.trim()
     ) {
       next({
         status: 400,
